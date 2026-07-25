@@ -10,6 +10,9 @@
 
   "item.god123awsomemod.basic_cultivation_art": "基本功法",
 
+  "tooltip.god123awwsomemod.basic_cultivation_art.shift_down": "基本功法",
+  "tooltip.god123awwsomemod.basic_cultivation_art": "按 §eShift§r 查看更多信息",
+
   "block.god123awsomemod.spirit_stone_block": "靈石塊",
   "block.god123awsomemod.spirit_stone_ore": "靈石礦",
   "block.god123awsomemod.mystic_iron_block": "玄鐵塊",

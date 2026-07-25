@@ -1,6 +1,7 @@
 package net.god123.Firstmod;
 
 import net.god123.Firstmod.block.ModBlocks;
+import net.god123.Firstmod.component.ModDataComponents;
 import net.god123.Firstmod.cultivationrealm.CultivationRealmData;
 import net.god123.Firstmod.item.ModCreativeModeTabs;
 import net.god123.Firstmod.item.ModItems;
@@ -57,10 +58,13 @@ public class Firstmod {
         ModPlayerMana.register(modEventBus);
         CultivationRealmData.register(modEventBus);
 
+        ModCreativeModeTabs.register(modEventBus);
+
         ModItems.register(modEventBus);
         ModBlocks.register(modEventBus);
 
-        ModCreativeModeTabs.register(modEventBus);
+        ModDataComponents.register(modEventBus);
+
         // Register the item to a creative tab
         modEventBus.addListener(this::addCreative);
 
@@ -74,15 +78,7 @@ public class Firstmod {
 
     // Add the example block item to the building blocks tab
     private void addCreative(BuildCreativeModeTabContentsEvent event) {
-        //hidden
-        /*if(event.getTabKey() == CreativeModeTabs.INGREDIENTS) {
-            event.accept(ModItems.SPIRIT_STONE);
-            event.accept(ModItems.RAW_MAGIC_STONE);
-        }
-        if(event.getTabKey() == CreativeModeTabs.BUILDING_BLOCKS) {
-            event.accept(ModBlocks.SPIRIT_STONE_BLOCK);
-            event.accept(ModBlocks.SPIRIT_STONE_ORE);
-        }*/
+
     }
 
     // You can use SubscribeEvent and let the Event Bus discover methods to call

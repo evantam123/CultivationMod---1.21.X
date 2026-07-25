@@ -10,6 +10,9 @@
 
   "item.god123awsomemod.basic_cultivation_art": "Basic Cultivation Art",
 
+  "tooltip.god123awwsomemod.basic_cultivation_art.shift_down": "Basic Cultivation Art",
+  "tooltip.god123awwsomemod.basic_cultivation_art": "Press §eShift§r for more Information",
+
   "block.god123awsomemod.spirit_stone_block": "Block of Spirit Stone",
   "block.god123awsomemod.spirit_stone_ore": "Spirit Stone Ore",
   "block.god123awsomemod.mystic_iron_block": "Mystic Iron Block",

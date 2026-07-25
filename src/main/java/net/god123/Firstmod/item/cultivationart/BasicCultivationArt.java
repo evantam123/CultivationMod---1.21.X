@@ -1,15 +1,20 @@
 package net.god123.Firstmod.item.cultivationart;
 
+import net.god123.Firstmod.component.ModDataComponents;
 import net.god123.Firstmod.cultivationrealm.CultivationRealmData;
 import net.minecraft.ChatFormatting;
+import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Rarity;
+import net.minecraft.world.item.TooltipFlag;
 import top.theillusivec4.curios.api.SlotContext;
 import top.theillusivec4.curios.api.type.capability.ICurioItem;
+
+import java.util.List;
 
 import static net.god123.Firstmod.cultivationrealm.CultivationRealmData.CULTIVATION_REALM;
 
@@ -19,6 +24,7 @@ public class BasicCultivationArt extends Item implements ICurioItem {
         super(new Properties()
                 .stacksTo(1)
                 .rarity(Rarity.COMMON)
+                .component(ModDataComponents.ART_NUM.get(), 10)
         );
     }
 
@@ -70,5 +76,15 @@ public class BasicCultivationArt extends Item implements ICurioItem {
 
         // 返回 false 阻止卸下
         return false;
+    }
+
+    @Override
+    public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> tooltipComponents, TooltipFlag tooltipFlag) {
+        if(Screen.hasShiftDown()) {
+            tooltipComponents.add(Component.translatable("tooltip.god123awwsomemod.basic_cultivation_art.shift_down"));
+        } else {
+            tooltipComponents.add(Component.translatable("tooltip.god123awwsomemod.basic_cultivation_art"));
+        }
+        super.appendHoverText(stack, context, tooltipComponents, tooltipFlag);
     }
 }

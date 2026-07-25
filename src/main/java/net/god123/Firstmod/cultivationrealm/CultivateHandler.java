@@ -1,10 +1,11 @@
 package net.god123.Firstmod.cultivationrealm;
 
 import net.god123.Firstmod.Firstmod;
-import net.god123.Firstmod.network.request.CultivateRequestPacket;
+import net.god123.Firstmod.component.ModDataComponents;
 import net.god123.Firstmod.network.sync.CultivationDataSyncPacket;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.phys.Vec3;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
@@ -12,8 +13,10 @@ import net.neoforged.neoforge.event.entity.living.LivingDamageEvent;
 import net.neoforged.neoforge.event.tick.PlayerTickEvent;
 import net.neoforged.neoforge.network.PacketDistributor;
 import top.theillusivec4.curios.api.CuriosApi;
+import top.theillusivec4.curios.api.type.inventory.ICurioStacksHandler;
 
 import java.util.*;
+import java.util.concurrent.atomic.AtomicInteger;
 
 @EventBusSubscriber(modid = Firstmod.MODID)
 public class CultivateHandler {
@@ -84,7 +87,7 @@ public class CultivateHandler {
                 return;
             }
 
-            data.addExp(EXP_PER_INTERVAL);
+            data.addExp(getExpPerInterval(serverPlayer));
 
             // 發送粒子效果（客戶端可見）
             // 這裡可以加一些視覺效果
@@ -94,7 +97,7 @@ public class CultivateHandler {
                 player.displayClientMessage(
                         net.minecraft.network.chat.Component.literal(
                                 String.format("§7修煉中... 經驗 +%d (§b%d§7/§b%d§7)",
-                                        EXP_PER_INTERVAL * 5,
+                                        getExpPerInterval(serverPlayer)* 5,
                                         data.getExp(),
                                         data.getRealm().getMaxExp())
                         ),
@@ -102,6 +105,23 @@ public class CultivateHandler {
                 );
             }
         }
+    }
+
+    private static int getExpPerInterval(Player player) {
+
+        int bonus = CuriosApi.getCuriosInventory(player)
+                .map(curiosInventory -> curiosInventory.getCurios().get("cultivation_art"))
+                .map(stacksHandler -> stacksHandler.getStacks().getStackInSlot(0))
+                .filter(stackInSlot -> !stackInSlot.isEmpty())
+                .map(stackInSlot -> {
+                    // 2. 读取你的 Data Component 数据
+                    // 假设你的 ModDataComponents.ART_NUM 注册类型是 Integer
+                    Integer value = stackInSlot.get(ModDataComponents.ART_NUM.get());
+                    return value != null ? value : 0; // 如果物品上没有这个数据，默认加成系数为 1
+                })
+                .orElse(0);
+
+        return EXP_PER_INTERVAL * bonus;
     }
 
     private static boolean canCulivating(ServerPlayer player) {
