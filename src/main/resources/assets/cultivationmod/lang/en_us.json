@@ -1,0 +1,63 @@
+{
+  "item.cultivationmod.low_spirit_stone": "Low Spirit Stone",
+  "item.cultivationmod.mid_spirit_stone": "Mid Spirit Stone",
+  "item.cultivationmod.high_spirit_stone": "High Spirit Stone",
+  "item.cultivationmod.mystic_iron_ingot": "Mystic Iron Ingot",
+  "item.cultivationmod.raw_mystic_iron": "Raw Mystic Iron",
+
+  "item.cultivationmod.healing_pill": "Healing Pill",
+  "item.cultivationmod.qi_restoration_pill": "Qi Restoration Pill",
+
+  "item.cultivationmod.basic_cultivation_art": "Basic Cultivation Art",
+
+  "tooltip.cultivationmod.basic_cultivation_art.shift_down": "Basic Cultivation Art",
+  "tooltip.cultivationmod.basic_cultivation_art": "Press §eShift§r for more Information",
+
+  "block.cultivationmod.spirit_stone_block": "Block of Spirit Stone",
+  "block.cultivationmod.spirit_stone_ore": "Spirit Stone Ore",
+  "block.cultivationmod.mystic_iron_block": "Mystic Iron Block",
+  "block.cultivationmod.mystic_iron_ore": "Mystic Iron Ore",
+
+  "creativetab.cultivationmod.cultivation_items": "Cultivation Items",
+  "creativetab.cultivationmod.cultivation_blocks": "Cultivation Blocks",
+
+  "key.category.cultivationmod.cultivation": "Cultivation",
+  "key.cultivationmod.open_cultivation_gui": "Open Cultivation GUI",
+  "key.cultivationmod.realm_up": "Realm Breakthrough",
+  "key.cultivationmod.cultivate": "Cultivate",
+
+  "command.cultivationmod.cultivation_set_fail": "Unknown realm! Available realms: Mortal, Qi Refining, Foundation Establishment, Golden Core, Nascent Soul, Spirit Severing (0–5)",
+  "command.cultivationmod.cultivation_set_success": "§aSuccessfully updated %s §a's realm to: %s",
+  "command.cultivationmod.cultivation_query": "%s §eCurrent Realm: %s",
+  "command.cultivationmod.get_exp": "%s Current EXP: %s",
+
+  "gui.cultivationmod.current_realm": "§eCurrent Realm: %s",
+  "gui.cultivationmod.button.breakthrough": "§lBreak Through Realm",
+  "gui.cultivationmod.exp_format": "EXP: %d §7/ %d",
+  "gui.cultivationmod.button.breakthrough.tooltip": "Click to attempt a breakthrough to the next realm.",
+  "gui.cultivationmod.breakthrough_status_ok": "✔ A breakthrough is possible!",
+  "gui.cultivationmod.breakthrough_status_not_ok": "✘ Insufficient experience to break through",
+  "gui.cultivationmod.text": "§7The path to immortality is long...",
+
+  "chat.cultivationmod.breakthrough_trying": "§eAttempting to break through to the next realm...",
+  "chat.cultivationmod.breakthrough_success": "§aBreakthrough successful! Current realm: %s",
+  "chat.cultivationmod.breakthrough_failure": "§cBreakthrough failed! Current realm: %s",
+
+  "realm.cultivationmod.mortal": [{"text": "Mortal", "color":  "gold"}],
+  "realm.cultivationmod.qi_refining": [{"text": "Qi Refining", "color":  "gold"}],
+  "realm.cultivationmod.foundation": [{"text": "Foundation", "color":  "gold"}],
+  "realm.cultivationmod.golden_core": [{"text": "Golden Core", "color":  "gold"}],
+  "realm.cultivationmod.nascent_soul": [{"text": "Nascent Soul", "color":  "gold"}],
+  "realm.cultivationmod.spirit_shedding": [{"text": "Spirit Shedding", "color":  "gold"}],
+
+  "cultivate.cultivationmod.stop_cultivate": "§eYou stopped cultivating",
+  "cultivate.cultivationmod.start_cultivate": "§aYou begin to cultivate...",
+  "cultivate.cultivationmod.cultivating": "§7Cultivating... EXP +%d (%d§7/%d§7)",
+  "cultivate.cultivationmod.cultivate_interrupt": "§cCultivation interrupted!",
+  "cultivate.cultivationmod.cultivate_interrupt_move": "§cMoving interrupted cultivation!",
+  "cultivate.cultivationmod.cultivate_interrupt_hurt": "§cTaking damage interrupted cultivation!",
+  "cultivate.cultivationmod.exp_full": "§eExperience is full! Please break through to the next realm!",
+
+  "curios.identifier.cultivation_art":"Cultivation Art",
+  "curios.cultivationmod.chat.cannot_equip": "⚠ You are currently cultivating a basic cultivation art and cannot abandon it halfway!"
+}

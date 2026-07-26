@@ -1,0 +1,63 @@
+{
+  "item.cultivationmod.low_spirit_stone": "下品靈石",
+  "item.cultivationmod.mid_spirit_stone": "中品靈石",
+  "item.cultivationmod.high_spirit_stone": "上品靈石",
+  "item.cultivationmod.mystic_iron_ingot": "玄鐵錠",
+  "item.cultivationmod.raw_mystic_iron": "玄鐵原礦",
+
+  "item.cultivationmod.healing_pill": "療傷丹",
+  "item.cultivationmod.qi_restoration_pill": "回氣丹",
+
+  "item.cultivationmod.basic_cultivation_art": "基本功法",
+
+  "tooltip.cultivationmod.basic_cultivation_art.shift_down": "基本功法",
+  "tooltip.cultivationmod.basic_cultivation_art": "按 §eShift§r 查看更多信息",
+
+  "block.cultivationmod.spirit_stone_block": "靈石塊",
+  "block.cultivationmod.spirit_stone_ore": "靈石礦",
+  "block.cultivationmod.mystic_iron_block": "玄鐵塊",
+  "block.cultivationmod.mystic_iron_ore": "玄鐵礦",
+
+  "creativetab.cultivationmod.cultivation_items": "修仙物品",
+  "creativetab.cultivationmod.cultivation_blocks": "修仙方塊",
+
+  "key.category.cultivationmod.cultivation": "修仙",
+  "key.cultivationmod.open_cultivation_gui": "打开修仙界面",
+  "key.cultivationmod.realm_up": "突破境界",
+  "key.cultivationmod.cultivate": "打坐修煉",
+
+  "command.cultivationmod.cultivation_set_fail": "未知境界！可用境界: 凡人, 煉氣期, 築基期, 金丹期, 元嬰期, 化神期 (0 - 5)",
+  "command.cultivationmod.cultivation_set_success": "§a已更新 %s §a的境界為: %s",
+  "command.cultivationmod.cultivation_query": "%s §e目前的境界: %s ",
+  "command.cultivationmod.get_exp": "%s 当前修為: %s",
+
+  "gui.cultivationmod.current_realm": "§e目前境界: %s",
+  "gui.cultivationmod.button.breakthrough": "§l突破境界",
+  "gui.cultivationmod.exp_format": "修為: %d §7/ %d",
+  "gui.cultivationmod.button.breakthrough.tooltip": "點選嘗試突破至下一境界。",
+  "gui.cultivationmod.breakthrough_status_ok": "✔ 可以突破！",
+  "gui.cultivationmod.breakthrough_status_not_ok": "✘ 修為不足，無法突破",
+  "gui.cultivationmod.text": "§7修仙路漫漫...",
+
+  "chat.cultivationmod.breakthrough_trying": "§e正在嘗試突破境界...",
+  "chat.cultivationmod.breakthrough_success": "§a突破成功！ 目前境界: %s",
+  "chat.cultivationmod.breakthrough_failure": "§c突破失敗! 目前境界: %s",
+
+  "realm.cultivationmod.mortal": [{"text": "凡人", "color":  "gold"}],
+  "realm.cultivationmod.qi_refining": [{"text": "煉氣期", "color":  "gold"}],
+  "realm.cultivationmod.foundation": [{"text": "築基期", "color":  "gold"}],
+  "realm.cultivationmod.golden_core": [{"text": "金丹期", "color":  "gold"}],
+  "realm.cultivationmod.nascent_soul": [{"text": "元嬰期", "color":  "gold"}],
+  "realm.cultivationmod.spirit_shedding": [{"text": "化神期", "color":  "gold"}],
+
+  "cultivate.cultivationmod.stop_cultivate": "§e你停止了打坐",
+  "cultivate.cultivationmod.start_cultivate": "§a你開始打坐修煉...",
+  "cultivate.cultivationmod.cultivating": "§7修煉中... 修為 +%d (%d§7/%d§7)",
+  "cultivate.cultivationmod.cultivate_interrupt": "§c打坐被打斷！",
+  "cultivate.cultivationmod.cultivate_interrupt_move": "§c移動打斷了打坐！",
+  "cultivate.cultivationmod.cultivate_interrupt_hurt": "§c受傷打斷了打坐！",
+  "cultivate.cultivationmod.exp_full": "§e經驗已滿！請突破境界！",
+
+  "curios.identifier.cultivation_art":"功法",
+  "curios.cultivationmod.chat.cannot_equip": "⚠ 你正在修炼 基本功法，无法中途放弃！"
+}
