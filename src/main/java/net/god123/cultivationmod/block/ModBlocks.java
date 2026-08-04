@@ -51,6 +51,9 @@ public class ModBlocks {
             )
     );
 
+    public static final DeferredBlock<Block> CAULDRON_BLOCK = registerBlock("cauldron_block",
+            () -> new CauldronBlock(BlockBehaviour.Properties.of()));
+
     private static <T extends Block> DeferredBlock<T> registerBlock(String name, Supplier<T> block) {
         DeferredBlock<T> toReturn = BLOCKS.register(name, block);
         registerBlockItem(name, toReturn);

@@ -40,6 +40,8 @@ public class ModCreativeModeTabs {
                 output.accept(ModBlocks.SPIRIT_STONE_ORE);
                 output.accept(ModBlocks.MYSTIC_IRON_BLOCK);
                 output.accept(ModBlocks.MYSTIC_IRON_ORE);
+
+                output.accept(ModBlocks.CAULDRON_BLOCK.get());
             }).build());
 
 

@@ -1,6 +1,7 @@
 package net.god123.cultivationmod;
 
 import net.god123.cultivationmod.block.ModBlocks;
+import net.god123.cultivationmod.block.entity.ModBlockEntities;
 import net.god123.cultivationmod.component.ModDataComponents;
 import net.god123.cultivationmod.cultivationrealm.CultivationRealmData;
 import net.god123.cultivationmod.item.ModCreativeModeTabs;
@@ -9,7 +10,11 @@ import net.god123.cultivationmod.mana.ManaCommand;
 import net.god123.cultivationmod.mana.ManaHudOverlay;
 import net.god123.cultivationmod.mana.ModPlayerMana;
 import net.god123.cultivationmod.network.sync.CultivationDataSyncPacket;
+import net.god123.cultivationmod.recipe.ModRecipes;
+import net.god123.cultivationmod.screen.ModMenuTypes;
+import net.god123.cultivationmod.screen.custom.CauldronScreen;
 import net.minecraft.server.level.ServerPlayer;
+import net.neoforged.neoforge.client.event.RegisterMenuScreensEvent;
 import net.neoforged.neoforge.event.RegisterCommandsEvent;
 import net.neoforged.neoforge.event.entity.player.PlayerEvent;
 import net.neoforged.neoforge.network.PacketDistributor;
@@ -65,6 +70,11 @@ public class CultivationMod {
 
         ModDataComponents.register(modEventBus);
 
+        ModBlockEntities.register(modEventBus);
+        ModMenuTypes.register(modEventBus);
+
+        ModRecipes.register(modEventBus);
+
         // Register the item to a creative tab
         modEventBus.addListener(this::addCreative);
 
@@ -115,6 +125,11 @@ public class CultivationMod {
                             new CultivationDataSyncPacket(data.getRealm().name(), data.getExp()));
                 });
             }
+        }
+
+        @SubscribeEvent
+        public static void registerScreens(RegisterMenuScreensEvent event) {
+            event.register(ModMenuTypes.CAULDRON_MENU.get(), CauldronScreen::new);
         }
 
     }

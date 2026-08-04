@@ -1,0 +1,10 @@
+{
+  "type": "cultivationmod:cauldron",
+  "ingredient": {
+    "item": "cultivationmod:low_spirit_stone"
+  },
+  "result": {
+    "id": "cultivationmod:healing_pill",
+    "count": 2
+  }
+}

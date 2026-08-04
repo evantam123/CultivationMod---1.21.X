@@ -19,6 +19,8 @@ public class ModBlockStateProvider extends BlockStateProvider {
         blockWithItem(ModBlocks.SPIRIT_STONE_BLOCK);
         blockWithItem(ModBlocks.MYSTIC_IRON_ORE);
         blockWithItem(ModBlocks.SPIRIT_STONE_ORE);
+
+        blockWithItem(ModBlocks.CAULDRON_BLOCK);
     }
 
     private void blockWithItem(DeferredBlock<?> deferredBlock) {

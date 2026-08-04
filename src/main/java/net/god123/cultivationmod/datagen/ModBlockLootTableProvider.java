@@ -25,6 +25,8 @@ public class ModBlockLootTableProvider extends BlockLootSubProvider {
                 block -> createOreDrop(ModBlocks.MYSTIC_IRON_ORE.get(), ItemIngredients.RAW_MYSTIC_IRON.get()));
         add(ModBlocks.SPIRIT_STONE_ORE.get(),
                 block -> createOreDrop(ModBlocks.SPIRIT_STONE_ORE.get(), ItemIngredients.LOW_SPIRIT_STONE.get()));
+
+        dropSelf(ModBlocks.CAULDRON_BLOCK.get());
     }
 
     @Override

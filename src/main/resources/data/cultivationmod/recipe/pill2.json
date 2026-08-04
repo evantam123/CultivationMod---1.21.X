@@ -1,0 +1,10 @@
+{
+  "type": "cultivationmod:cauldron",
+  "ingredient": {
+    "item": "cultivationmod:mid_spirit_stone"
+  },
+  "result": {
+    "id": "cultivationmod:qi_restoration_pill",
+    "count": 2
+  }
+}
