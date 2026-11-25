@@ -40,9 +40,11 @@ public class CultivationRealmCommand {
                                                     CultivationRealm data = player.getData(CULTIVATION_REALM);
 
                                                     RealmLevel[] realmLevels = RealmLevel.values();
-                                                    if (level < realmLevels.length && level >= 0) {
-                                                        data.setRealm(realmLevels[level]);
-                                                        PacketDistributor.sendToPlayer(player, new CultivationDataSyncPacket(data.getRealm().name(), data.getExp()));
+                                                    if (level <= (realmLevels.length - 1) * 10 && level >= 0) {
+                                                        data.setMathLevel(level);
+                                                        data.refreshRealm();
+                                                        CultivationRealmAttributeModifier.refreshAttribute(player);
+                                                        PacketDistributor.sendToPlayer(player, new CultivationDataSyncPacket(data.getRealm().name(), data.getMathLevel(), data.getExp()));
                                                     } else {
                                                         context.getSource().sendFailure(
                                                                 Component.translatable("command.cultivationmod.cultivation_set_fail")
@@ -52,7 +54,7 @@ public class CultivationRealmCommand {
                                                     Component commandMsg = Component.translatable(
                                                             "command.cultivationmod.cultivation_set_success",
                                                             Component.literal(player.getScoreboardName()).withStyle(ChatFormatting.YELLOW),
-                                                            Component.translatable(data.getRealmTranslateKey())
+                                                            data.getRealmNameComponent()
                                                     );
                                                     context.getSource().sendSuccess(() -> commandMsg, true);
                                                     return 1;
@@ -65,12 +67,24 @@ public class CultivationRealmCommand {
                                             ServerPlayer player = EntityArgument.getPlayer(context, "target");
                                             CultivationRealm data = player.getData(CULTIVATION_REALM);
 
-                                            Component realmNameComponent = Component.translatable(data.getRealmTranslateKey());
+                                            Component realmNameComponent = data.getRealmNameComponent();
                                             Component commandMsg = Component.translatable(
                                                     "command.cultivationmod.cultivation_query",
                                                     Component.literal(player.getScoreboardName()).withStyle(ChatFormatting.YELLOW),
                                                     realmNameComponent
                                             );
+                                            context.getSource().sendSuccess(() -> commandMsg, true);
+
+                                            return 1;
+                                        })
+                                )
+                                //mathlevel
+                                .then(Commands.literal("mathlevel")
+                                        .executes(context -> {
+                                            ServerPlayer player = EntityArgument.getPlayer(context, "target");
+                                            CultivationRealm data = player.getData(CULTIVATION_REALM);
+
+                                            Component commandMsg = Component.literal(String.valueOf(data.getMathLevel()));
                                             context.getSource().sendSuccess(() -> commandMsg, true);
 
                                             return 1;
@@ -85,7 +99,7 @@ public class CultivationRealmCommand {
                                                 CultivationRealm data = player.getData(CULTIVATION_REALM);
                                                 int exp = IntegerArgumentType.getInteger(context, "exp");
                                                 data.setExp(exp);
-                                                PacketDistributor.sendToPlayer(player, new CultivationDataSyncPacket(data.getRealm().name(), data.getExp()));
+                                                PacketDistributor.sendToPlayer(player, new CultivationDataSyncPacket(data.getRealm().name(), data.getMathLevel(), data.getExp()));
                                                 context.getSource().sendSuccess(() -> getExpTextComponent(player), false);
 
                                                 return 1;
@@ -108,7 +122,7 @@ public class CultivationRealmCommand {
                                                 CultivationRealm data = player.getData(CULTIVATION_REALM);
                                                 int exp = IntegerArgumentType.getInteger(context, "exp");
                                                 data.addExp(exp);
-                                                PacketDistributor.sendToPlayer(player, new CultivationDataSyncPacket(data.getRealm().name(), data.getExp()));
+                                                PacketDistributor.sendToPlayer(player, new CultivationDataSyncPacket(data.getRealm().name(), data.getMathLevel(), data.getExp()));
                                                 context.getSource().sendSuccess(() -> getExpTextComponent(player), false);
 
                                                 return 1;

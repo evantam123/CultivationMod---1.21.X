@@ -23,12 +23,14 @@
   "creativetab.cultivationmod.cultivation_items": "Cultivation Items",
   "creativetab.cultivationmod.cultivation_blocks": "Cultivation Blocks",
 
+  "attribute.name.cultivationmod.critical_chance": "Critical Chance",
+
   "key.category.cultivationmod.cultivation": "Cultivation",
   "key.cultivationmod.open_cultivation_gui": "Open Cultivation GUI",
   "key.cultivationmod.realm_up": "Realm Breakthrough",
   "key.cultivationmod.cultivate": "Cultivate",
 
-  "command.cultivationmod.cultivation_set_fail": "Unknown realm! Available realms: Mortal, Qi Refining, Foundation Establishment, Golden Core, Nascent Soul, Spirit Severing (0–5)",
+  "command.cultivationmod.cultivation_set_fail": "Unknown realm! Available realms: Mortal, Qi Refining, Foundation Establishment, Golden Core, Nascent Soul, Spirit Severing (0–50)",
   "command.cultivationmod.cultivation_set_success": "§aSuccessfully updated %s §a's realm to: %s",
   "command.cultivationmod.cultivation_query": "%s §eCurrent Realm: %s",
   "command.cultivationmod.get_exp": "%s Current EXP: %s",
@@ -45,12 +47,26 @@
   "chat.cultivationmod.breakthrough_success": "§aBreakthrough successful! Current realm: %s",
   "chat.cultivationmod.breakthrough_failure": "§cBreakthrough failed! Current realm: %s",
 
-  "realm.cultivationmod.mortal": [{"text": "Mortal", "color":  "gold"}],
-  "realm.cultivationmod.qi_refining": [{"text": "Qi Refining", "color":  "gold"}],
-  "realm.cultivationmod.foundation": [{"text": "Foundation", "color":  "gold"}],
-  "realm.cultivationmod.golden_core": [{"text": "Golden Core", "color":  "gold"}],
-  "realm.cultivationmod.nascent_soul": [{"text": "Nascent Soul", "color":  "gold"}],
-  "realm.cultivationmod.spirit_shedding": [{"text": "Spirit Shedding", "color":  "gold"}],
+  "realm.cultivationmod.mortal": [{"text": "Mortal ", "color":  "gold"}],
+  "realm.cultivationmod.qi_refining": [{"text": "Qi Refining ", "color":  "gold"}],
+  "realm.cultivationmod.foundation": [{"text": "Foundation ", "color":  "gold"}],
+  "realm.cultivationmod.golden_core": [{"text": "Golden Core ", "color":  "gold"}],
+  "realm.cultivationmod.nascent_soul": [{"text": "Nascent Soul ", "color":  "gold"}],
+  "realm.cultivationmod.spirit_shedding": [{"text": "Spirit Shedding ", "color":  "gold"}],
+
+  "realm.cultivationmod.tier": [{"text": "Tier", "color": "gold"}],
+  "realm.cultivationmod.full": [{"text": "Perfect ", "color": "gold"}],
+
+  "word.cultivationmod.1": [{"text": "First ", "color": "gold"}],
+  "word.cultivationmod.2": [{"text": "Second ", "color": "gold"}],
+  "word.cultivationmod.3": [{"text": "Third ", "color": "gold"}],
+  "word.cultivationmod.4": [{"text": "Fourth ", "color": "gold"}],
+  "word.cultivationmod.5": [{"text": "Fifth ", "color": "gold"}],
+  "word.cultivationmod.6": [{"text": "Sixth ", "color": "gold"}],
+  "word.cultivationmod.7": [{"text": "Seventh ", "color": "gold"}],
+  "word.cultivationmod.8": [{"text": "Eighth ", "color": "gold"}],
+  "word.cultivationmod.9": [{"text": "Ninth ", "color": "gold"}],
+  "word.cultivationmod.10": [{"text": "Tenth ", "color": "gold"}],
 
   "cultivate.cultivationmod.stop_cultivate": "§eYou stopped cultivating",
   "cultivate.cultivationmod.start_cultivate": "§aYou begin to cultivate...",

@@ -23,12 +23,14 @@
   "creativetab.cultivationmod.cultivation_items": "修仙物品",
   "creativetab.cultivationmod.cultivation_blocks": "修仙方塊",
 
+  "attribute.name.cultivationmod.critical_chance": "暴擊率",
+
   "key.category.cultivationmod.cultivation": "修仙",
   "key.cultivationmod.open_cultivation_gui": "打开修仙界面",
   "key.cultivationmod.realm_up": "突破境界",
   "key.cultivationmod.cultivate": "打坐修煉",
 
-  "command.cultivationmod.cultivation_set_fail": "未知境界！可用境界: 凡人, 煉氣期, 築基期, 金丹期, 元嬰期, 化神期 (0 - 5)",
+  "command.cultivationmod.cultivation_set_fail": "未知境界！可用境界: 凡人, 煉氣期, 築基期, 金丹期, 元嬰期, 化神期 (0 - 50)",
   "command.cultivationmod.cultivation_set_success": "§a已更新 %s §a的境界為: %s",
   "command.cultivationmod.cultivation_query": "%s §e目前的境界: %s ",
   "command.cultivationmod.get_exp": "%s 当前修為: %s",
@@ -46,11 +48,26 @@
   "chat.cultivationmod.breakthrough_failure": "§c突破失敗! 目前境界: %s",
 
   "realm.cultivationmod.mortal": [{"text": "凡人", "color":  "gold"}],
-  "realm.cultivationmod.qi_refining": [{"text": "煉氣期", "color":  "gold"}],
-  "realm.cultivationmod.foundation": [{"text": "築基期", "color":  "gold"}],
-  "realm.cultivationmod.golden_core": [{"text": "金丹期", "color":  "gold"}],
-  "realm.cultivationmod.nascent_soul": [{"text": "元嬰期", "color":  "gold"}],
-  "realm.cultivationmod.spirit_shedding": [{"text": "化神期", "color":  "gold"}],
+  "realm.cultivationmod.qi_refining": [{"text": "煉氣", "color":  "gold"}],
+  "realm.cultivationmod.foundation": [{"text": "築基", "color":  "gold"}],
+  "realm.cultivationmod.golden_core": [{"text": "金丹", "color":  "gold"}],
+  "realm.cultivationmod.nascent_soul": [{"text": "元嬰", "color":  "gold"}],
+  "realm.cultivationmod.spirit_shedding": [{"text": "化神", "color":  "gold"}],
+
+  "realm.cultivationmod.tier": [{"text": "層", "color": "gold"}],
+  "realm.cultivationmod.full": [{"text": "圓滿", "color": "gold"}],
+  "realm.cultivationmod.realmm": "期",
+
+  "word.cultivationmod.1": [{"text": "一", "color": "gold"}],
+  "word.cultivationmod.2": [{"text": "二", "color": "gold"}],
+  "word.cultivationmod.3": [{"text": "三", "color": "gold"}],
+  "word.cultivationmod.4": [{"text": "四", "color": "gold"}],
+  "word.cultivationmod.5": [{"text": "五", "color": "gold"}],
+  "word.cultivationmod.6": [{"text": "六", "color": "gold"}],
+  "word.cultivationmod.7": [{"text": "七", "color": "gold"}],
+  "word.cultivationmod.8": [{"text": "八", "color": "gold"}],
+  "word.cultivationmod.9": [{"text": "九", "color": "gold"}],
+  "word.cultivationmod.10": [{"text": "十", "color": "gold"}],
 
   "cultivate.cultivationmod.stop_cultivate": "§e你停止了打坐",
   "cultivate.cultivationmod.start_cultivate": "§a你開始打坐修煉...",

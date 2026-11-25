@@ -75,7 +75,7 @@ public class CultivateHandler {
             CultivationRealmData.CultivationRealm data = serverPlayer.getData(CultivationRealmData.CULTIVATION_REALM);
 
             if (data.isRealmUpExpOk()) {
-                PacketDistributor.sendToPlayer(serverPlayer, new CultivationDataSyncPacket(data.getRealm().name(), data.getExp()));
+                PacketDistributor.sendToPlayer(serverPlayer, new CultivationDataSyncPacket(data.getRealm().name(), data.getMathLevel(), data.getExp()));
                 // 經驗已滿，提示突破
                 player.displayClientMessage(
                         Component.translatable("cultivate.cultivationmod.exp_full"),
@@ -91,7 +91,7 @@ public class CultivateHandler {
             // 這裡可以加一些視覺效果
 
             if (player.tickCount % (EXP_INTERVAL * 5) == 0) {
-                PacketDistributor.sendToPlayer(serverPlayer, new CultivationDataSyncPacket(data.getRealm().name(), data.getExp()));
+                PacketDistributor.sendToPlayer(serverPlayer, new CultivationDataSyncPacket(data.getRealm().name(), data.getMathLevel(), data.getExp()));
                 player.displayClientMessage(
                         Component.translatable(
                                 "cultivate.cultivationmod.cultivating",

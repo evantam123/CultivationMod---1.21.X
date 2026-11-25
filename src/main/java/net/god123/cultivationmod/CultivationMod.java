@@ -1,8 +1,10 @@
 package net.god123.cultivationmod;
 
+import net.god123.cultivationmod.attackevent.ModCombatAttribute;
 import net.god123.cultivationmod.block.ModBlocks;
 import net.god123.cultivationmod.block.entity.ModBlockEntities;
 import net.god123.cultivationmod.component.ModDataComponents;
+import net.god123.cultivationmod.cultivationrealm.CultivationRealmAttributeModifier;
 import net.god123.cultivationmod.cultivationrealm.CultivationRealmData;
 import net.god123.cultivationmod.item.ModCreativeModeTabs;
 import net.god123.cultivationmod.item.ModItems;
@@ -62,6 +64,7 @@ public class CultivationMod {
 
         ModPlayerMana.register(modEventBus);
         CultivationRealmData.register(modEventBus);
+        ModCombatAttribute.register(modEventBus);
 
         ModCreativeModeTabs.register(modEventBus);
 
@@ -122,7 +125,9 @@ public class CultivationMod {
                     CultivationRealmData.CultivationRealm data = serverPlayer.getData(CultivationRealmData.CULTIVATION_REALM);
                     // 同步到客戶端
                     PacketDistributor.sendToPlayer(serverPlayer,
-                            new CultivationDataSyncPacket(data.getRealm().name(), data.getExp()));
+                            new CultivationDataSyncPacket(data.getRealm().name(), data.getMathLevel(), data.getExp()));
+
+                    CultivationRealmAttributeModifier.refreshAttribute(serverPlayer);
                 });
             }
         }

@@ -35,7 +35,7 @@ public record RealmUpResponsePacket(boolean success) implements CustomPacketPayl
             LocalPlayer player = minecraft.player;
             if (player != null) {
                 CultivationRealmData.CultivationRealm data = player.getData(CultivationRealmData.CULTIVATION_REALM);
-                Component realmComponent = Component.translatable(data.getRealmTranslateKey());
+                Component realmComponent = data.getRealmNameComponent();
                 String translationKey = success ? "chat.cultivationmod.breakthrough_success" : "chat.cultivationmod.breakthrough_failure";
                 Component breakText = Component.translatable(translationKey, realmComponent);
                 player.sendSystemMessage(breakText);

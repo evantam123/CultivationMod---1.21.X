@@ -2,6 +2,8 @@ package net.god123.cultivationmod.cultivationrealm;
 
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
+import net.minecraft.network.chat.Component;
+import net.minecraft.network.chat.MutableComponent;
 import net.minecraft.util.StringRepresentable;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.attachment.AttachmentType;
@@ -11,7 +13,7 @@ import net.neoforged.neoforge.registries.NeoForgeRegistries;
 import java.util.function.Supplier;
 
 public class CultivationRealmData{
-    public static final DeferredRegister<AttachmentType<?>> ATTACHMENT_TYPES = DeferredRegister.create(NeoForgeRegistries.ATTACHMENT_TYPES, "god123awsomemod");
+    public static final DeferredRegister<AttachmentType<?>> ATTACHMENT_TYPES = DeferredRegister.create(NeoForgeRegistries.ATTACHMENT_TYPES, "cultivationmod");
 
     public enum RealmLevel  implements StringRepresentable{
         MORTAL("mortal", 100),
@@ -27,6 +29,10 @@ public class CultivationRealmData{
         RealmLevel(String translate_key, int max_exp) {
             this.translate_key = translate_key;
             this.max_exp = max_exp;
+        }
+
+        public int getMaxSubLayers() {
+            return this == MORTAL ? 0 : 10;
         }
 
         public String getTranslateKey() {
@@ -48,15 +54,18 @@ public class CultivationRealmData{
 
     public static class CultivationRealm {
         private RealmLevel realm;
+        private int mathLevel;
         private int exp;
 
         public CultivationRealm() {
             this.realm = RealmLevel.MORTAL;
+            this.mathLevel = 0;
             this.exp = 0;
         }
 
-        public CultivationRealm(RealmLevel realm, int exp) {
+        public CultivationRealm(RealmLevel realm,int mathLevel, int exp) {
             this.realm = realm;
+            this.mathLevel = mathLevel;
             this.exp = exp;
         }
 
@@ -66,6 +75,14 @@ public class CultivationRealmData{
 
         public void setRealm(RealmLevel realm) {
             this.realm = realm;
+        }
+
+        public int getMathLevel() {
+            return this.mathLevel;
+        }
+
+        public void setMathLevel(int mathLevel) {
+            this.mathLevel = mathLevel;
         }
 
         public int getExp() {
@@ -84,13 +101,24 @@ public class CultivationRealmData{
             return this.exp == realm.getMaxExp();
         }
 
+        public void refreshRealm() {
+            RealmLevel[] realmlevels = RealmLevel.values();
+            if (this.mathLevel <= 0) {
+                this.realm = RealmLevel.MORTAL;
+            } else {
+                int index = (this.mathLevel - 1) / 10 + 1;
+                this.realm = realmlevels[Math.min(index, realmlevels.length - 1)];
+            }
+        }
+
         public boolean RealmUp() {
+            RealmLevel[] realmlevels = RealmLevel.values();
             if (isRealmUpExpOk()) {
-                RealmLevel[] realmlevels = RealmLevel.values();
-                int currentRealmOrdinal = this.realm.ordinal();
-                if(currentRealmOrdinal < realmlevels.length - 1) {
+                int maxMathLevel = (realmlevels.length - 1) * 10;
+                if(mathLevel < maxMathLevel) {
                     this.exp = 0;
-                    this.realm = realmlevels[currentRealmOrdinal + 1];
+                    this.mathLevel += 1;
+                    refreshRealm();
                     return true;
                 }
             }
@@ -101,9 +129,30 @@ public class CultivationRealmData{
             return realm.getTranslateKey();
          }
 
+         public String getSublayerTranslateKey(int subLayer) {
+            if(subLayer > 0) {
+                return "word.cultivationmod." + subLayer;
+            } else {
+                return "realm.cultivationmod.full";
+            }
+         }
+
+         public Component getRealmNameComponent() {
+            int sublayer = mathLevel % 10;
+            MutableComponent realmNameComponent = Component.translatable(realm.getTranslateKey());
+            if (mathLevel > 0) {
+                realmNameComponent = realmNameComponent.append(Component.translatable(getSublayerTranslateKey(sublayer)));
+            }
+            if (sublayer > 0) {
+                realmNameComponent = realmNameComponent.append(Component.translatable("realm.cultivationmod.tier"));
+            }
+            return realmNameComponent;
+         }
+
          public static final Codec<CultivationRealm> CODEC = RecordCodecBuilder.create(instance ->
                  instance.group(
                          RealmLevel.CODEC.fieldOf("realm").forGetter(CultivationRealm::getRealm),
+                         Codec.INT.fieldOf("mathLevel").forGetter(CultivationRealm::getMathLevel),
                          Codec.INT.fieldOf("exp").forGetter(CultivationRealm::getExp)
                  ).apply(instance, CultivationRealm::new)
          );

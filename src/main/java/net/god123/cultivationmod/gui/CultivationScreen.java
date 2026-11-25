@@ -122,7 +122,7 @@ public class CultivationScreen extends Screen {
         drawTextWithBackground(guiGraphics, "§6§l修 仙 境 界",
                 guiLeft + GUI_WIDTH / 2 - 40, guiTop + 10, 0xFF000000);
 
-        Component realmNameComponent = Component.translatable(playerData.getRealmTranslateKey());
+        Component realmNameComponent =  playerData.getRealmNameComponent();
         Component realmText = Component.translatable("gui.cultivationmod.current_realm", realmNameComponent);
         guiGraphics.drawString(this.font, realmText, guiLeft + 20, guiTop + 35, textColor, false);
 
